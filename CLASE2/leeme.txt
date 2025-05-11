@@ -1,1 +1,5 @@
-.
+sudo apt-get update
+curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo rm /etc/apt/sources.list.d/nodesource.list
+sudo apt-get install -y nodejs build-essential
+sudo npm install -g --unsafe-perm node-red
