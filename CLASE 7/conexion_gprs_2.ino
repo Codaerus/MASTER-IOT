@@ -10,6 +10,14 @@ char gprsUser[] = "datos";
 char gprsPass[] = "datos";
 
 void setup() {
+  setup_gprs();
+}
+
+void loop() {
+
+}
+
+void setup_gprs(){
   SerialMon.begin(9600);
   SerialAT.begin(9600, SERIAL_8N1,16,17);
   delay(2000);
@@ -38,9 +46,4 @@ void setup() {
     SerialMon.println("Conexión GPRS Exitosa");
     SerialMon.println(modem.getLocalIP());
   }
-}
-
-void loop() {
-
-
 }
