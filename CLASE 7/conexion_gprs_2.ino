@@ -30,7 +30,7 @@ void setup() {
   //GPRS Conexión a Internet
   SerialMon.print("Conectandonos a ");
   SerialMon.println(apn);
-  if(!modem.gprsConnect(apn,gprsUer,gprsPass)){
+  if(!modem.gprsConnect(apn,gprsUser,gprsPass)){
     SerialMon.println("Error de conexión GPRS");
     return;
   }
