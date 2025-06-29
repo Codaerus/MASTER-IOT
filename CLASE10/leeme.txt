@@ -1,1 +1,3 @@
-.
+curl -L -o modelo_rgl.pkl https://github.com/Codaerus/MASTER-IOT/raw/refs/heads/main/CLASE10/modelo_rgl.pkl 
+sudo apt install python3-joblib
+sudo apt install python3-sklearn
