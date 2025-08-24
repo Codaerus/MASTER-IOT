@@ -1,24 +1,24 @@
-#include <PubSubClient.h>
 #include <WiFi.h>
+#include <PubSubClient.h>
 
 WiFiClient espClient;
 PubSubClient client(espClient);
-unsigned long int t = 0;
 char msg[30];
+unsigned long t = 0;
 void setup() {
-setup_wifi();
-client.setServer("3.128.201.171", 1883);
-client.setCallback(callback);
+  setup_wifi();
+  client.setServer("18.189.7.185",1883);
+  client.setCallback (callback);
 }
 
-void callback(const char* topic, byte* payload, unsigned int length){
+void callback(const char *topic, byte* payload, unsigned int length){
   payload[length] = '\0';
-  String val = String((char*)payload);
+  String val  = String((char*)payload);
   Serial.println(val);
 }
 
 void reconnect(){
-  if(client.connect("ESP32-1")){
+  if(client.connect("ESP32")){
     Serial.println("MQTT OK");
     client.subscribe("canaly");
   }
@@ -29,21 +29,24 @@ void loop() {
     reconnect();
   }
   client.loop();
-  if(millis()-t>10000){
-    int temp = 27;
-    int humi = 60;
-    snprintf(msg,30,"%d,%d",temp,humi);
-    client.publish("canalx",msg);
+  int x = 14;
+  int y = 28;
+  if(millis()-t>=5000){
+    snprintf(msg,30,"%d,%d",x,y);
+    client.publish("canalx", msg);
     t = millis();
   }
 }
 
-void setup_wifi(){
+
+void setup_wifi()
+{
   Serial.begin(9600);
-  WiFi.begin("MOVISTAR_78A8","NS2ajtQJ7TtDt9m"); //DHCP
-  while(WiFi.status() != WL_CONNECTED){
-    Serial.print(".");
+  WiFi.begin("MOVISTAR_78A8","NS2ajtQJ7TtDt9m");
+  while(WiFi.status() != WL_CONNECTED)
+  {
     delay(300);
+    Serial.print(".");
   }
   Serial.println(WiFi.localIP());
 }
