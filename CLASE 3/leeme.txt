@@ -1,2 +1,14 @@
+PRIMERO -> ACTUALIZAR EL GESTOR
 sudo apt update
+
+SEGUNDO  -> PARA INSTALAR EL BROKER:
 sudo apt install mosquitto mosquitto-clients
+LUEGO:
+sudo nano /etc/mosquitto/mosquitto.conf
+LUEGO AÑADIR AL FINAL DEL .conf ESTAS DOS LINEAS
+allow_anonymous true
+listener 1883 0.0.0.0
+
+TERCERO -> ACTUALIZAR LOS CAMBIOS
+sudo service mosquitto restart
+
