@@ -1,0 +1,523 @@
+[
+    {
+        "id": "fa0e2e317b1ff987",
+        "type": "mqtt in",
+        "z": "f58f8fda3fa6ec9c",
+        "name": "",
+        "topic": "canalx",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "865cb99a69f1dc06",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 480,
+        "wires": [
+            [
+                "1ce0988246c982ac"
+            ]
+        ]
+    },
+    {
+        "id": "5b4547f5af64fad3",
+        "type": "ui-gauge",
+        "z": "f58f8fda3fa6ec9c",
+        "name": "Temperatura",
+        "group": "59555f0d06d9d491",
+        "order": 8,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Temperatura",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "40",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "70",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 790,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8fc5ad939b8423ba",
+        "type": "ui-gauge",
+        "z": "f58f8fda3fa6ec9c",
+        "name": "Humedad",
+        "group": "59555f0d06d9d491",
+        "order": 2,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Humedad",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "40",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "70",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 780,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a3b17098014a09c2",
+        "type": "mqtt out",
+        "z": "f58f8fda3fa6ec9c",
+        "name": "",
+        "topic": "canaly",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "865cb99a69f1dc06",
+        "x": 490,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "091c242aa9f63a3c",
+        "type": "inject",
+        "z": "f58f8fda3fa6ec9c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hola",
+        "payloadType": "str",
+        "x": 330,
+        "y": 80,
+        "wires": [
+            [
+                "a3b17098014a09c2"
+            ]
+        ]
+    },
+    {
+        "id": "f34c1c3006fe028a",
+        "type": "ui-switch",
+        "z": "f58f8fda3fa6ec9c",
+        "name": "LED",
+        "label": "switch",
+        "group": "59555f0d06d9d491",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "a",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "b",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 330,
+        "y": 140,
+        "wires": [
+            [
+                "a3b17098014a09c2"
+            ]
+        ]
+    },
+    {
+        "id": "124f825a83e39818",
+        "type": "mysql",
+        "z": "f58f8fda3fa6ec9c",
+        "mydb": "b4b0d592afcb5ecc",
+        "name": "",
+        "x": 680,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "66d0567b20b25215",
+        "type": "inject",
+        "z": "f58f8fda3fa6ec9c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "22,60",
+        "payloadType": "str",
+        "x": 170,
+        "y": 420,
+        "wires": [
+            [
+                "1ce0988246c982ac"
+            ]
+        ]
+    },
+    {
+        "id": "1ce0988246c982ac",
+        "type": "function",
+        "z": "f58f8fda3fa6ec9c",
+        "name": "function 4",
+        "func": "let temp = msg.payload.split(\",\")[0];\nlet humi = msg.payload.split(\",\")[1];\nlet out = \"INSERT INTO sensores (id, tiempo, temperatura, humedad) \";\nout = out + \"VALUES (NULL, CURRENT_TIMESTAMP,\" + temp + \",\"+ humi+ \");\";\nmsg.topic = out;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 420,
+        "wires": [
+            [
+                "124f825a83e39818"
+            ]
+        ]
+    },
+    {
+        "id": "f66aab8794f9244b",
+        "type": "function",
+        "z": "f58f8fda3fa6ec9c",
+        "name": "consulta",
+        "func": "msg.topic = \"SELECT * FROM sensores ORDER BY id DESC LIMIT 1\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 320,
+        "wires": [
+            [
+                "73934f8311d135e2"
+            ]
+        ]
+    },
+    {
+        "id": "73934f8311d135e2",
+        "type": "mysql",
+        "z": "f58f8fda3fa6ec9c",
+        "mydb": "b4b0d592afcb5ecc",
+        "name": "",
+        "x": 440,
+        "y": 320,
+        "wires": [
+            [
+                "c72ed8bcd5d82dab",
+                "2dc221a809287d6f"
+            ]
+        ]
+    },
+    {
+        "id": "6fce2fab398e36ba",
+        "type": "debug",
+        "z": "f58f8fda3fa6ec9c",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "51376efaab589f43",
+        "type": "inject",
+        "z": "f58f8fda3fa6ec9c",
+        "name": "",
+        "props": [],
+        "repeat": "8",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "f66aab8794f9244b"
+            ]
+        ]
+    },
+    {
+        "id": "c72ed8bcd5d82dab",
+        "type": "function",
+        "z": "f58f8fda3fa6ec9c",
+        "name": "temperatura",
+        "func": "msg.payload = msg.payload[0].temperatura;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 280,
+        "wires": [
+            [
+                "5b4547f5af64fad3"
+            ]
+        ]
+    },
+    {
+        "id": "2dc221a809287d6f",
+        "type": "function",
+        "z": "f58f8fda3fa6ec9c",
+        "name": "humedad",
+        "func": "msg.payload = msg.payload[0].humedad;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 340,
+        "wires": [
+            [
+                "6fce2fab398e36ba",
+                "8fc5ad939b8423ba"
+            ]
+        ]
+    },
+    {
+        "id": "865cb99a69f1dc06",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "59555f0d06d9d491",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "6a5004f48f22b66d",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false,
+        "groupType": "default"
+    },
+    {
+        "id": "b4b0d592afcb5ecc",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "MONITOREO",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "6a5004f48f22b66d",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "9e678c1cdf9d110a",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "18fb8a5cc420c5bb",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "9e678c1cdf9d110a",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": true
+    },
+    {
+        "id": "18fb8a5cc420c5bb",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "b3c192c543a25587",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.26.0",
+            "node-red-node-mysql": "2.0.0"
+        }
+    }
+]
