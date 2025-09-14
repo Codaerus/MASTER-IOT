@@ -1,0 +1,274 @@
+[
+    {
+        "id": "0e64ce4e0c164125",
+        "type": "function",
+        "z": "94c2cf80a17e6eb2",
+        "name": "function 55",
+        "func": "msg.payload = { \"name\": \"kuse\", \n                \"lat\": msg.payload.split(\",\")[0], \n                \"lon\": msg.payload.split(\",\")[1], \n                \"icon\":\"fa-car\",\n                \"command\":{\n                            \"layer\":\"OSM\",\n                            \"lat\": msg.payload.split(\",\")[0],\n                            \"lon\": msg.payload.split(\",\")[1],\n                            \"zoom\": 18\n                            }\n             };\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 260,
+        "wires": [
+            [
+                "4f72b5e91b71a1c5"
+            ]
+        ]
+    },
+    {
+        "id": "17730b24693b28b7",
+        "type": "inject",
+        "z": "94c2cf80a17e6eb2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "-12.046342,-77.008280",
+        "payloadType": "str",
+        "x": 340,
+        "y": 340,
+        "wires": [
+            [
+                "0e64ce4e0c164125"
+            ]
+        ]
+    },
+    {
+        "id": "eb5c289c78ce7a37",
+        "type": "mqtt in",
+        "z": "94c2cf80a17e6eb2",
+        "name": "",
+        "topic": "GPS",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6bf497e775438793",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 240,
+        "wires": [
+            [
+                "0e64ce4e0c164125",
+                "3261e0a65de8ba32"
+            ]
+        ]
+    },
+    {
+        "id": "3261e0a65de8ba32",
+        "type": "debug",
+        "z": "94c2cf80a17e6eb2",
+        "name": "debug 63",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "4f72b5e91b71a1c5",
+        "type": "worldmap",
+        "z": "94c2cf80a17e6eb2",
+        "name": "",
+        "lat": "",
+        "lon": "",
+        "zoom": "",
+        "layer": "OSMG",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "show",
+        "layers": "show",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "false",
+        "coords": "none",
+        "showgrid": "false",
+        "showruler": "false",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "overlist": "DR,CO,RA,DN",
+        "maplist": "OSMG,OSMC,EsriC,EsriS,UKOS",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 560,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "8a78cd34cce03625",
+        "type": "ui-template",
+        "z": "94c2cf80a17e6eb2",
+        "group": "59555f0d06d9d491",
+        "page": "",
+        "ui": "",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<iframe src=\"http://3.20.224.30:1880/worldmap/\" width=\"600\" height=\"400\" frameborder=\"0\" allowfullscreen></iframe>\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 440,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6bf497e775438793",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "59555f0d06d9d491",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "6a5004f48f22b66d",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false,
+        "groupType": "default"
+    },
+    {
+        "id": "6a5004f48f22b66d",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "9e678c1cdf9d110a",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "18fb8a5cc420c5bb",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "9e678c1cdf9d110a",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": true
+    },
+    {
+        "id": "18fb8a5cc420c5bb",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "7b62b298a187f7a7",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-web-worldmap": "5.5.1",
+            "@flowfuse/node-red-dashboard": "1.26.0"
+        }
+    }
+]
