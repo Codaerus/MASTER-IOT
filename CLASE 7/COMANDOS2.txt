@@ -9,6 +9,8 @@ AT+CSTT= "internet.comcel.com.co","comcel","comcel"
 AT+CSTT= "internet.wm.com","",""
 AT+CSTT= "internet.itelcel.com","webgpr","webgprs2002"
 AT+CSTT= "internet.claro.com.ec","",""
+AT+CSTT="claro.pe","claro","claro"
+AT+CSTT="entel.pe","",""
 
 AT+CBC //BATERIA
 
