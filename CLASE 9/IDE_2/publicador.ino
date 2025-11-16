@@ -86,6 +86,7 @@ X9S2kuQljvQorl5asbsk+xeZMke2/XvL/bN7TQ0bWhyJDthN7sRdF75dc411auiI
 bKNT1wrz8LbsaNwzfzAbHmVmTZPBZhGlxAWxZ93U2mZe8KwRCvk=
 -----END RSA PRIVATE KEY-----
 )EOF"; 
+
 void setup_aws(){
   espClient.setCACert(AWS_CA_CERT);
   espClient.setCertificate(AWS_DEVICE_CERT);
@@ -108,10 +109,11 @@ void loop() {
   if(!client.connected()){
       reconnect();
     }
-  if(millis()-t>= 30000){
-    int temp = 14;
-    int humi = 70;
-    snprintf(msg,30,"%d,%d",temp,humi);
+  if(millis()-t>= 60000){
+    int id = 1;
+    int temp = 30;
+    int humi = 60;
+    snprintf(msg,80,"{\"ID\":%d, \"TEMP\":%d, \"HUMI\":%d}",id,temp,humi);
     client.publish("canalx",msg);
     t = millis();
   }
